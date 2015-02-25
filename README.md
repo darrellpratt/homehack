@@ -1,0 +1,2 @@
+# homehack
+wired home
