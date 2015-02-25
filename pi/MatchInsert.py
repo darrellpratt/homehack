@@ -31,7 +31,7 @@ def nodeParser(arduino_sensor, node) :
 
 def tcpSend(line):
 
-    TCP_IP = '192.168.1.110'
+    TCP_IP = 'splunk_server'
     TCP_PORT = 8101
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -40,7 +40,7 @@ def tcpSend(line):
     s.close()
 def locater(name):
     if 'mike' in name:
-        result = bluetooth.lookup_name('3C:AB:8E:64:04:85', timeout=5)
+        result = bluetooth.lookup_name('mymac', timeout=5)
         if (result != None):
             output = "locator=mike loctation=1"
             locationstatus=1
@@ -48,8 +48,7 @@ def locater(name):
             output = "locator=mike loctation=0"
             locationstatus=0
     elif 'heather' in name:
-        #result = bluetooth.lookup_name('18:86:AC:8A:F7:C7', timeout=5)
-        result = bluetooth.lookup_name('40:B0:FA:19:D5:97', timeout=5)
+        result = bluetooth.lookup_name('heathers_mac', timeout=5)
         if (result != None):
             output = "locator=heather loctation=1"
             locationstatus=1
@@ -110,7 +109,7 @@ def send_and_receive( theinput ):
 
 
 
-#cnx = mysql.connector.connect(host='192.168.1.110', user='t0rque', database='files', password='4control')
+#cnx = mysql.connector.connect(host='sql_server', user='t0rque', database='files', password='password')
 #cursor = cnx.cursor()
 
 while 1 :
